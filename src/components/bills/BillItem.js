@@ -63,10 +63,10 @@ const BillItem = ({ bill }) => {
             </p>
           </div>
           <div className='card-action'>
-            <a href='#' className='grey-text'>
+            <a href='#!' className='grey-text'>
               watch
             </a>
-            <a href='#' className='grey-text'>
+            <a href='#!' className='grey-text'>
               learn more
             </a>
           </div>

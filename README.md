@@ -8,4 +8,4 @@ This is an open source project. I welcome any contributions that help further it
 
 # Authors
 
-Steven Jenkins: (github)[https://github.com/stev3]
+Steven Jenkins: [github](https://github.com/stev3)
