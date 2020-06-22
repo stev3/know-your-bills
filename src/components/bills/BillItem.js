@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BillItem = ({ bill }) => {
   return (
@@ -66,9 +67,9 @@ const BillItem = ({ bill }) => {
             <a href='#!' className='grey-text'>
               watch
             </a>
-            <a href='#!' className='grey-text'>
+            <Link to={`/bill/${bill.bill_slug}`} className='grey-text'>
               learn more
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -4,6 +4,8 @@ import BillContext from '../../context/bill/billContext';
 const Search = () => {
   const billContext = useContext(BillContext);
 
+  const { searchBills } = billContext;
+
   const [text, setText] = useState('');
 
   const onChange = (e) => {
@@ -16,7 +18,7 @@ const Search = () => {
       // alertContext.setAlert('Please enter something', 'light');
       console.log('Please enter something');
     } else {
-      billContext.searchBills(text);
+      searchBills(text);
       // setText('');
     }
   };

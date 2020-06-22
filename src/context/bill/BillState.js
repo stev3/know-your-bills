@@ -3,7 +3,7 @@ import axios from 'axios';
 import BillContext from './billContext';
 import BillReducer from './billReducer';
 
-import { SEARCH_BILLS, SET_LOADING } from '../types';
+import { SEARCH_BILLS, GET_BILL, SET_LOADING } from '../types';
 
 const BillState = (props) => {
   const initialState = {
@@ -50,11 +50,13 @@ const BillState = (props) => {
         vetoed: null,
       },
     ],
+    bill: {},
     loading: false,
   };
 
   const [state, dispatch] = useReducer(BillReducer, initialState);
 
+  // Search Bills
   const searchBills = async (text) => {
     setLoading();
 
@@ -73,6 +75,22 @@ const BillState = (props) => {
     });
   };
 
+  // Get Bill
+  const getBill = async (uri) => {
+    setLoading();
+
+    const res = await axios({
+      method: 'get',
+      baseURL: uri,
+      headers: { 'X-API-Key': `${process.env.REACT_APP_PROPUBLICA_API}` },
+    });
+
+    dispatch({
+      type: GET_BILL,
+      payload: res.data.results[0],
+    });
+  };
+
   // Set Loading
   const setLoading = () =>
     dispatch({
@@ -83,8 +101,10 @@ const BillState = (props) => {
     <BillContext.Provider
       value={{
         bills: state.bills,
+        bill: state.bill,
         loading: state.loading,
         searchBills,
+        getBill,
       }}
     >
       {props.children}

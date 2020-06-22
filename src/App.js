@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Search from './components/bills/Search';
-import Bills from './components/bills/Bills';
+import Home from './components/pages/Home';
+
+import Bill from './components/bills/Bill';
 
 import BillState from './context/bill/BillState';
 
@@ -17,10 +19,12 @@ const App = () => {
 
   return (
     <BillState>
-      <div className='container'>
-        <Search />
-        <Bills />
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/bill/:bill_slug' component={Bill} />
+        </Switch>
+      </Router>
     </BillState>
   );
 };

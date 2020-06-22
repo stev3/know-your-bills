@@ -13,7 +13,7 @@ const Bills = () => {
     return (
       <div>
         {bills.map((bill) => (
-          <BillItem key={bill.bill_id} bill={bill} />
+          <BillItem key={bill.bill_slug} bill={bill} />
         ))}
       </div>
     );

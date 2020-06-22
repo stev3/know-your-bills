@@ -1,4 +1,4 @@
-import { SEARCH_BILLS, SET_LOADING } from '../types';
+import { SEARCH_BILLS, GET_BILL, SET_LOADING } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -6,6 +6,12 @@ export default (state, action) => {
       return {
         ...state,
         bills: action.payload,
+        loading: false,
+      };
+    case GET_BILL:
+      return {
+        ...state,
+        bill: action.payload,
         loading: false,
       };
     case SET_LOADING:
